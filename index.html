@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Noah Wertz — Cybersecurity & IT</title>
-  <meta name="description" content="Noah Wertz — cybersecurity student & IT intern. Projects, computer build, and contact." />
+  <title>Noah Wertz — Portfolio</title>
+  <meta name="description" content="Noah Wertz — cybersecurity student building a home lab (VMs, NAS, networking).">
   <style>
     :root { --w: 880px; --pad: 1.25rem; --radius: 14px; }
     * { box-sizing: border-box; }
@@ -12,13 +12,15 @@
     header { max-width: var(--w); margin: 0 auto; padding: 1.2rem var(--pad); display:flex; align-items:center; justify-content:space-between; }
     nav a { margin-left: 1rem; text-decoration: none; }
     .wrap { max-width: var(--w); margin: 0 auto; padding: 0 var(--pad) 4rem; }
-    .hero { padding: 2.5rem var(--pad) 1rem; }
+    .hero { padding: 2.2rem var(--pad) 1rem; }
     .hero h1 { margin: 0 0 .25rem; font-size: clamp(1.6rem, 6vw, 2.4rem); }
     .muted { opacity:.8; }
     .grid { display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
     .card { border: 1px solid #ddd; border-radius: var(--radius); padding: 1rem; background:#fff; }
     .btns a { display:inline-block; padding:.6rem .9rem; border-radius:10px; border:1px solid #ccc; text-decoration:none; margin-right:.5rem; }
+    .check li { margin:.2rem 0; }
     footer { text-align:center; padding: 2rem var(--pad); opacity:.7; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
     @media (prefers-color-scheme: dark) {
       body { background:#0b0c0f; color:#e8eaf0; }
       .card { background:#11141a; border-color:#2a2f3a; }
@@ -31,79 +33,113 @@
   <header>
     <div><strong>Noah Wertz</strong></div>
     <nav>
-      <a href="#projects">Projects</a>
-      <a href="#build">PC Build</a>
+      <a href="#project">Project</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#stack">Tech Stack</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main class="wrap">
+    <!-- HERO -->
     <section class="hero card">
       <h1>Hi, I’m Noah 👋</h1>
-      <p class="muted">Cybersecurity student & IT intern. I tinker with networks, Windows/AD, and small home-lab projects.</p>
+      <p class="muted">Cybersecurity student & IT support specialist. I build practical home-lab systems (VMs, storage, and networking) and document the process in plain English.</p>
       <div class="btns">
-        <a href="#projects">See Projects</a>
-        <a href="#build">My PC Build</a>
-        <a href="/NoahWertz-Portfolio/NoahWertzResume.pdf" target="_blank" rel="noopener">
-  Download Résumé (PDF)
-</a>
+        <!-- Keep absolute path so it works at /Computer-Build/ -->
+        <a href="/Computer-Build/NoahWertzResume.pdf" target="_blank" rel="noopener">Download Résumé</a>
+        <a href="#project">See My Lab</a>
       </div>
     </section>
 
-    <section id="projects" class="grid" style="margin-top:1rem;">
-      <article class="card">
-        <h2 style="margin-top:0;">Featured: Computer Build</h2>
-        <p>A clean parts list and notes on performance, temps, and lessons learned.</p>
-        <p><a href="#build">Jump to PC Build ↓</a></p>
-      </article>
+    <!-- FEATURED PROJECT -->
+    <section id="project" class="card" style="margin-top:1rem;">
+      <h2 style="margin-top:0;">Featured Project: Home Server Lab</h2>
+      <p class="muted">Goal: a reliable, low-cost lab for learning cybersecurity/IT — with virtualization, a NAS for files/backups, and self-hosted services.</p>
 
-      <article class="card">
-        <h3 style="margin-top:0;">Mini Projects</h3>
-        <ul>
-          <li>AD account provisioning cheat-sheet</li>
-          <li>RJ-45 crimping & basic switch setup notes</li>
-          <li>Pi imaging + remote desktop experiments</li>
-        </ul>
-      </article>
+      <div class="grid" style="margin-top:.5rem;">
+        <article class="card">
+          <h3 style="margin-top:0;">Architecture (planned)</h3>
+          <ul>
+            <li><strong>Host/Hypervisor:</strong> Proxmox VE (or VirtualBox/UTM if starting small)</li>
+            <li><strong>VMs:</strong> Ubuntu Server for apps, Windows Server for AD lab</li>
+            <li><strong>Storage/NAS:</strong> TrueNAS SCALE (ZFS) with SMB/NFS shares</li>
+            <li><strong>Containers:</strong> Docker apps (Pi-hole, Nextcloud, Jellyfin, Uptime-Kuma)</li>
+            <li><strong>Networking:</strong> VLANs, basic firewall rules, WireGuard VPN</li>
+            <li><strong>Backups:</strong> ZFS snapshots + restic/rsync to external/cloud</li>
+            <li><strong>Monitoring:</strong> Prometheus + Grafana (or Netdata)</li>
+          </ul>
+        </article>
 
-      <article class="card">
-        <h3 style="margin-top:0;">What I’m learning</h3>
-        <ul>
-          <li>Ticket triage & end-user troubleshooting</li>
-          <li>Meraki monitoring basics</li>
-          <li>VPN, VMware Remote Console, email admin</li>
-        </ul>
-      </article>
+        <article class="card">
+          <h3 style="margin-top:0;">Why it matters</h3>
+          <ul>
+            <li>Hands-on with Linux, Windows Server, AD, and networking</li>
+            <li>Real admin tasks: backups, user access, updates, logs</li>
+            <li>Portfolio proof: configs, diagrams, and incident notes</li>
+          </ul>
+          <!-- OPTIONAL IMAGE -->
+          <!-- Upload lab.jpg to the repo and uncomment the next line -->
+          <!-- <img src="lab.jpg" alt="Home lab" style="max-width:100%; border-radius:12px; margin-top:.5rem;"> -->
+        </article>
+      </div>
+
+      <h3>Current Status</h3>
+      <ul>
+        <li>Planning and documenting build; selecting hardware and topology</li>
+        <li>Drafting network/VLAN plan and service list (below)</li>
+      </ul>
     </section>
 
-    <section id="build" class="card" style="margin-top:1rem;">
-      <h2 style="margin-top:0;">My PC Build</h2>
-      <p class="muted">A quick summary of the rig I use for school, labs, and light gaming.</p>
+    <!-- ROADMAP -->
+    <section id="roadmap" class="card" style="margin-top:1rem;">
+      <h2 style="margin-top:0;">Roadmap</h2>
+      <ol class="check">
+        <li>👣 Stand up hypervisor and a Linux VM</li>
+        <li>🗄️ Install TrueNAS SCALE, create a ZFS pool, share via SMB</li>
+        <li>📦 Deploy Docker (Portainer), run Pi-hole & Uptime-Kuma</li>
+        <li>🔐 Stand up WireGuard VPN for remote access</li>
+        <li>🪪 Spin up Windows Server + AD, join a test client</li>
+        <li>🛡️ Backups & snapshots; test restore</li>
+        <li>📈 Add monitoring (Grafana/Prometheus or Netdata)</li>
+        <li>📝 Write a short postmortem for one “incident” (update or outage)</li>
+      </ol>
+    </section>
+
+    <!-- TECH STACK -->
+    <section id="stack" class="card" style="margin-top:1rem;">
+      <h2 style="margin-top:0;">Tech Stack (target)</h2>
       <div class="grid">
         <div class="card">
-          <h4 style="margin-top:0;">Core Specs</h4>
+          <h4 style="margin-top:0;">Core</h4>
           <ul>
-            <li><strong>CPU:</strong> (add yours)</li>
-            <li><strong>GPU:</strong> (add yours)</li>
-            <li><strong>RAM:</strong> (e.g., 32GB DDR4/DDR5)</li>
-            <li><strong>Storage:</strong> (e.g., 1TB NVMe)</li>
-            <li><strong>OS:</strong> Windows 11 Pro</li>
+            <li>Proxmox VE (or VirtualBox/UTM first)</li>
+            <li>TrueNAS SCALE (ZFS, SMB/NFS)</li>
+            <li>Ubuntu Server LTS</li>
           </ul>
         </div>
         <div class="card">
-          <h4 style="margin-top:0;">Notes</h4>
+          <h4 style="margin-top:0;">Services</h4>
           <ul>
-            <li>Temps under load: (placeholder)</li>
-            <li>Noise/power: (placeholder)</li>
-            <li>What I’d change next: (placeholder)</li>
+            <li>Pi-hole (DNS filtering)</li>
+            <li>Nextcloud (files, calendar)</li>
+            <li>Jellyfin (media)</li>
+            <li>NGINX Proxy Manager</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4 style="margin-top:0;">Security & Ops</h4>
+          <ul>
+            <li>WireGuard VPN</li>
+            <li>Backups: restic/rsync, ZFS snapshots</li>
+            <li>Monitoring: Prometheus + Grafana / Netdata</li>
+            <li>Syslog & basic alerting</li>
           </ul>
         </div>
       </div>
-      <p>Add a photo: upload an image named <code>build.jpg</code> to the repo and insert:<br>
-        <code>&lt;img src="build.jpg" alt="My PC build" style="max-width:100%; border-radius:12px;"&gt;</code>
-      </p>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="card" style="margin-top:1rem;">
       <h2 style="margin-top:0;">Contact</h2>
       <p>GitHub: <a href="https://github.com/NoahWertz">@NoahWertz</a></p>
